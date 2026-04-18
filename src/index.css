@@ -1,0 +1,61 @@
+/* 1. Import the premium Montserrat font from Google */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+@import "tailwindcss";
+
+/* 2. Define your Lotus Gold Theme Variables */
+@theme {
+  --color-lotus-dark: #4B122C;
+  --color-lotus-light: #6A1238;
+  --color-lotus-gold: #E8B13E;
+  /* UPGRADED: Replaced Inter with the luxury Montserrat font */
+  --font-sans: "Montserrat", system-ui, sans-serif;
+}
+
+/* Apply the Global MNC-Style Foundation */
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900 min-h-screen antialiased selection:bg-lotus-gold selection:text-lotus-dark;
+  }
+}
+
+@layer utilities {
+  .animate-marquee {
+    /* 35 seconds for a smooth, readable scrolling speed */
+    animation: marquee 35s linear infinite;
+  }
+  
+  /* Pause the animation if the user hovers their mouse over it */
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  /* The math to make it loop seamlessly */
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-float-slow {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-float-fast {
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+  }
+}
+
+/* Hide scrollbar for the image carousel but keep functionality */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

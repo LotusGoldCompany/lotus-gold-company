@@ -1,124 +1,180 @@
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { X, Star, CheckCircle2 } from 'lucide-react';
-
-// Strict validation: Require name, a star rating, and a minimum review length
-const reviewSchema = z.object({
-  name: z.string().min(2, 'Name is required'),
-  rating: z.number().min(1, 'Please select a star rating'),
-  review: z.string().min(10, 'Review must be at least 10 characters'),
-});
+import { X, Send, Loader2, CheckCircle, AlertCircle, Star } from 'lucide-react';
 
 export default function ReviewModal({ isOpen, onClose }) {
-  const [hoverRating, setHoverRating] = useState(0);
-  const [selectedRating, setSelectedRating] = useState(0);
-
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
-    reset
-  } = useForm({
-    resolver: zodResolver(reviewSchema),
-    defaultValues: { rating: 0 }
+  const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
+  const [hoveredStar, setHoveredStar] = useState(0);
+  const [formData, setFormData] = useState({
+    name: '',
+    rating: 5, // Default to 5 stars!
+    message: ''
   });
-
-  const handleStarClick = (rating) => {
-    setSelectedRating(rating);
-    setValue('rating', rating, { shouldValidate: true }); // Updates the hidden form value
-  };
-
-  const onSubmit = async (data) => {
-    // Simulate sending to your backend/database
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    console.log('New Review Submitted:', data);
-    reset();
-    setSelectedRating(0);
-    setTimeout(() => {
-      onClose();
-    }, 2000);
-  };
 
   if (!isOpen) return null;
 
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleStarClick = (ratingValue) => {
+    setFormData({ ...formData, rating: ratingValue });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('submitting');
+
+    // Prepare data for Web3Forms
+    const submissionData = {
+      ...formData,
+      access_key: "f5acb993-861a-473e-a614-5d3b6ecc7b6a", // Using your exact access key
+      subject: `⭐️ New ${formData.rating}-Star Review from ${formData.name}`,
+      from_name: "Lotus Gold Reviews"
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(submissionData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus('success');
+        // Reset form and close modal after 2.5 seconds
+        setTimeout(() => {
+          setFormData({ name: '', rating: 5, message: '' });
+          setStatus('idle');
+          onClose();
+        }, 2500);
+      } else {
+        setStatus('error');
+        console.error("Review submission failed:", result);
+      }
+    } catch (error) {
+      setStatus('error');
+      console.error("Network error:", error);
+    }
+  };
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
-      <div className="relative w-full max-w-md bg-[#FFFDF9] rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+      {/* Blurred Backdrop */}
+      <div 
+        className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
+        onClick={onClose}
+      ></div>
+
+      {/* Modal Container */}
+      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-lg relative z-10 overflow-hidden animate-in fade-in zoom-in duration-300">
         
-        <button 
-          onClick={onClose}
-          className="absolute top-4 right-4 p-1 rounded-md bg-black/5 text-gray-500 hover:bg-black/10 hover:text-black transition-colors cursor-pointer"
-        >
-          <X size={20} />
-        </button>
-
-        <div className="p-8">
-          <div className="mb-6 text-center">
-            <h2 className="text-3xl font-bold text-[#1e293b] mb-2">Rate Your Experience</h2>
-            <p className="text-gray-600 text-sm font-medium">Your feedback helps us serve Mysuru better.</p>
+        {/* Header */}
+        <div className="bg-gradient-to-r from-[#2B0917] to-[#4B122C] p-6 text-white flex justify-between items-center">
+          <div>
+            <h3 className="text-2xl font-black">Share Your Experience</h3>
+            <p className="text-[#E8B13E] text-sm font-medium mt-1">We value your feedback.</p>
           </div>
+          <button 
+            onClick={onClose} 
+            className="text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors cursor-pointer"
+          >
+            <X size={20} />
+          </button>
+        </div>
 
-          {isSubmitSuccessful ? (
-            <div className="py-8 flex flex-col items-center text-green-600">
-              <CheckCircle2 size={48} className="mb-4" />
-              <p className="text-lg font-bold">Thank You!</p>
-              <p className="text-sm text-gray-500 text-center mt-2">Your review has been submitted and is pending approval.</p>
+        {/* Dynamic Body Area */}
+        <div className="p-8">
+          {/* SUCCESS STATE */}
+          {status === 'success' ? (
+            <div className="flex flex-col items-center justify-center py-10 text-center animate-in fade-in zoom-in">
+              <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mb-6">
+                <CheckCircle size={40} className="text-green-500" />
+              </div>
+              <h4 className="text-2xl font-bold text-gray-900 mb-2">Thank You!</h4>
+              <p className="text-gray-600 font-medium">Your review has been successfully submitted.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
+            /* FORM STATE */
+            <form onSubmit={handleSubmit} className="space-y-6">
               
+              {/* Error Message */}
+              {status === 'error' && (
+                <div className="bg-red-50 text-red-600 p-4 rounded-xl flex items-center gap-3 text-sm font-bold border border-red-100">
+                  <AlertCircle size={18} /> Something went wrong. Please try again.
+                </div>
+              )}
+
               {/* Interactive Star Rating */}
-              <div className="flex flex-col items-center justify-center mb-2">
+              <div className="flex flex-col items-center justify-center py-2">
+                <label className="block text-sm font-bold text-gray-700 mb-3">Rate your experience</label>
                 <div className="flex gap-2">
                   {[1, 2, 3, 4, 5].map((star) => (
                     <button
                       key={star}
                       type="button"
-                      onMouseEnter={() => setHoverRating(star)}
-                      onMouseLeave={() => setHoverRating(0)}
                       onClick={() => handleStarClick(star)}
+                      onMouseEnter={() => setHoveredStar(star)}
+                      onMouseLeave={() => setHoveredStar(0)}
                       className="focus:outline-none transition-transform hover:scale-110 cursor-pointer"
                     >
                       <Star 
                         size={36} 
-                        fill={(hoverRating || selectedRating) >= star ? '#E8B13E' : 'transparent'} 
-                        className={(hoverRating || selectedRating) >= star ? 'text-lotus-gold' : 'text-gray-300'}
-                        strokeWidth={1.5}
+                        fill={(hoveredStar || formData.rating) >= star ? "#E8B13E" : "transparent"} 
+                        className={(hoveredStar || formData.rating) >= star ? "text-[#E8B13E]" : "text-gray-300"}
                       />
                     </button>
                   ))}
                 </div>
-                {errors.rating && <p className="mt-2 text-xs text-red-500 font-medium">{errors.rating.message}</p>}
+                <p className="text-xs text-gray-400 font-bold mt-3 uppercase tracking-wider">
+                  {formData.rating} out of 5 Stars
+                </p>
               </div>
 
               <div>
-                <input
-                  {...register('name')}
-                  className={`w-full px-4 py-3 rounded-lg bg-white border ${errors.name ? 'border-red-500' : 'border-gray-300'} text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-lotus-light transition-all`}
-                  placeholder="Your Name"
+                <label className="block text-sm font-bold text-gray-700 mb-1.5">Your Name *</label>
+                <input 
+                  type="text" 
+                  name="name"
+                  required
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#E8B13E] focus:border-transparent outline-none transition-all font-medium text-gray-900"
+                  placeholder="Enter your name"
                 />
-                {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name.message}</p>}
               </div>
 
               <div>
-                <textarea
-                  {...register('review')}
+                <label className="block text-sm font-bold text-gray-700 mb-1.5">Your Review *</label>
+                <textarea 
+                  name="message"
+                  required
                   rows="4"
-                  className={`w-full px-4 py-3 rounded-lg bg-white border ${errors.review ? 'border-red-500' : 'border-gray-300'} text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-lotus-light transition-all resize-none`}
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#E8B13E] focus:border-transparent outline-none transition-all font-medium text-gray-900 resize-none"
                   placeholder="Tell us about your experience..."
                 ></textarea>
-                {errors.review && <p className="mt-1 text-xs text-red-500">{errors.review.message}</p>}
               </div>
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full py-3.5 mt-2 rounded-full bg-lotus-dark text-white font-bold text-lg hover:bg-lotus-light transition-all disabled:opacity-70 shadow-lg cursor-pointer"
+              <button 
+                type="submit" 
+                disabled={status === 'submitting'}
+                className="w-full bg-[#E8B13E] text-[#2B0917] font-black text-lg py-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 mt-2 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none cursor-pointer"
               >
-                {isSubmitting ? 'Submitting...' : 'Submit Review'}
+                {status === 'submitting' ? (
+                  <>
+                    <Loader2 size={20} className="animate-spin" /> Submitting...
+                  </>
+                ) : (
+                  <>
+                    <Send size={20} /> Submit Review
+                  </>
+                )}
               </button>
             </form>
           )}

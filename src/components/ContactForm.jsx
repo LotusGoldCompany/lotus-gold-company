@@ -1,153 +1,183 @@
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { X, CheckCircle2 } from 'lucide-react';
+import { useState } from 'react';
+import { X, Send, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 
-// Strict Security Rules for Lead Gen
-const formSchema = z.object({
-  fullName: z.string().min(2, 'Name is required'),
-  phone: z.string().min(10, 'Valid phone number is required'),
-  goldWeight: z.string().min(1, 'Please enter estimated weight'),
-  type: z.string().min(1, 'Please select a type'),
-  state: z.string().min(1, 'Please select a state'),
-});
-
-export default function ContactForm({ isOpen, onClose }) {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
-    reset
-  } = useForm({
-    resolver: zodResolver(formSchema),
+export default function ContactForm({ isOpen, onClose, onUnlock }) {
+  const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    service: 'Sell Gold',
+    message: ''
   });
 
-  const onSubmit = async (data) => {
-    try {
-      // 1. Prepare the data for Web3Forms
-      const formData = {
-        ...data,
-        access_key: "54626125-ab61-4bc1-aa00-615dbe1922f2", 
-        subject: "New Lead from Lotus Gold Website!",
-        from_name: "Lotus Gold Automated System"
-      };
+  if (!isOpen) return null;
 
-      // 2. Send the secure request
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('submitting');
+
+    // Prepare data for Web3Forms
+    const submissionData = {
+      ...formData,
+      access_key: "f5acb993-861a-473e-a614-5d3b6ecc7b6a",
+      subject: `New Lead: ${formData.service} - ${formData.name}`,
+      from_name: "Lotus Gold Automated System"
+    };
+
+    try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(submissionData),
       });
 
       const result = await response.json();
 
       if (result.success) {
-        console.log("Lead successfully sent to your email!");
-        reset(); // Clear the form
+        setStatus('success');
+        if (onUnlock) onUnlock();
+        // Reset form and close modal after 2.5 seconds
         setTimeout(() => {
-          onClose(); // Close the modal
-        }, 2000);
+          setFormData({ name: '', phone: '', service: 'Sell Gold', message: '' });
+          setStatus('idle');
+          onClose();
+        }, 2500);
       } else {
+        setStatus('error');
         console.error("Form submission failed:", result);
       }
     } catch (error) {
+      setStatus('error');
       console.error("Network error:", error);
     }
   };
 
-  if (!isOpen) return null;
-
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
-      <div className="relative w-full max-w-lg bg-[#FFFDF9] rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+      {/* Blurred Backdrop */}
+      <div 
+        className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
+        onClick={onClose}
+      ></div>
+
+      {/* Modal Container */}
+      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-lg relative z-10 overflow-hidden animate-in fade-in zoom-in duration-300">
         
-        <button 
-          onClick={onClose}
-          className="absolute top-4 right-4 p-1 rounded-md bg-black/5 text-gray-500 hover:bg-black/10 hover:text-black transition-colors"
-        >
-          <X size={20} />
-        </button>
-
-        <div className="p-8">
-          <div className="mb-6 text-center">
-            <h2 className="text-3xl font-bold text-[#1e293b] mb-2">Contact Us</h2>
-            <p className="text-gray-600 text-sm font-medium">Fill out the form below. Our team will contact you soon.</p>
+        {/* Header */}
+        <div className="bg-gradient-to-r from-[#2B0917] to-[#4B122C] p-6 text-white flex justify-between items-center">
+          <div>
+            <h3 className="text-2xl font-black">Get in Touch</h3>
+            <p className="text-[#E8B13E] text-sm font-medium mt-1">We'll get back to you within 15 minutes.</p>
           </div>
+          <button 
+            onClick={onClose} 
+            className="text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors cursor-pointer"
+          >
+            <X size={20} />
+          </button>
+        </div>
 
-          {isSubmitSuccessful ? (
-            <div className="py-8 flex flex-col items-center text-green-600">
-              <CheckCircle2 size={48} className="mb-4" />
-              <p className="text-lg font-bold">Request Submitted!</p>
-              <p className="text-sm text-gray-500">We will be in touch shortly.</p>
+        {/* Dynamic Body Area */}
+        <div className="p-8">
+          {/* SUCCESS STATE */}
+          {status === 'success' ? (
+            <div className="flex flex-col items-center justify-center py-10 text-center animate-in fade-in zoom-in">
+              <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mb-6">
+                <CheckCircle size={40} className="text-green-500" />
+              </div>
+              <h4 className="text-2xl font-bold text-gray-900 mb-2">Message Sent!</h4>
+              <p className="text-gray-600 font-medium">Our executive will call you shortly at {formData.phone}.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
+            /* FORM STATE */
+            <form onSubmit={handleSubmit} className="space-y-5">
+              
+              {/* Error Message */}
+              {status === 'error' && (
+                <div className="bg-red-50 text-red-600 p-4 rounded-xl flex items-center gap-3 text-sm font-bold border border-red-100">
+                  <AlertCircle size={18} /> Something went wrong. Please try again.
+                </div>
+              )}
+
               <div>
-                <input
-                  {...register('fullName')}
-                  className={`w-full px-4 py-3 rounded-lg bg-white border ${errors.fullName ? 'border-red-500' : 'border-gray-300'} text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-lotus-light transition-all`}
-                  placeholder="Full Name"
+                <label className="block text-sm font-bold text-gray-700 mb-1.5">Full Name *</label>
+                <input 
+                  type="text" 
+                  name="name"
+                  required
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#E8B13E] focus:border-transparent outline-none transition-all font-medium text-gray-900"
+                  placeholder="Enter your name"
                 />
-                {errors.fullName && <p className="mt-1 text-xs text-red-500">{errors.fullName.message}</p>}
               </div>
 
               <div>
-                <input
-                  {...register('phone')}
-                  type="tel"
-                  className={`w-full px-4 py-3 rounded-lg bg-white border ${errors.phone ? 'border-red-500' : 'border-gray-300'} text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-lotus-light transition-all`}
-                  placeholder="Phone Number"
-                />
-                {errors.phone && <p className="mt-1 text-xs text-red-500">{errors.phone.message}</p>}
+                <label className="block text-sm font-bold text-gray-700 mb-1.5">Phone Number *</label>
+                <div className="relative">
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 font-bold">+91</span>
+                  <input 
+                    type="tel" 
+                    name="phone"
+                    required
+                    pattern="[0-9]{10}"
+                    title="Please enter a valid 10-digit mobile number"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="w-full pl-12 pr-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#E8B13E] focus:border-transparent outline-none transition-all font-medium text-gray-900"
+                    placeholder="98765 43210"
+                  />
+                </div>
               </div>
 
               <div>
-                <input
-                  {...register('goldWeight')}
-                  className={`w-full px-4 py-3 rounded-lg bg-white border ${errors.goldWeight ? 'border-red-500' : 'border-gray-300'} text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-lotus-light transition-all`}
-                  placeholder="Enter Gold Weight (e.g. 50 grams)"
-                />
-                {errors.goldWeight && <p className="mt-1 text-xs text-red-500">{errors.goldWeight.message}</p>}
-              </div>
-
-              <div>
-                <select
-                  {...register('type')}
-                  className={`w-full px-4 py-3 rounded-lg bg-white border ${errors.type ? 'border-red-500' : 'border-gray-300'} text-gray-800 focus:outline-none focus:ring-2 focus:ring-lotus-light transition-all appearance-none`}
+                <label className="block text-sm font-bold text-gray-700 mb-1.5">How can we help you? *</label>
+                <select 
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#E8B13E] focus:border-transparent outline-none transition-all font-medium text-gray-900"
                 >
-                  <option value="">Select Type</option>
-                  <option value="jewelry">Gold Jewelry</option>
-                  <option value="coins">Gold Coins/Bars</option>
-                  <option value="pledged">Release Pledged Gold</option>
+                  <option>Sell Gold for Cash</option>
+                  <option>Release Pledged Gold</option>
+                  <option>Gold Exchange</option>
+                  <option>General Enquiry</option>
                 </select>
-                {errors.type && <p className="mt-1 text-xs text-red-500">{errors.type.message}</p>}
               </div>
 
-              <div>
-                <select
-                  {...register('state')}
-                  className={`w-full px-4 py-3 rounded-lg bg-white border ${errors.state ? 'border-red-500' : 'border-gray-300'} text-gray-800 focus:outline-none focus:ring-2 focus:ring-lotus-light transition-all appearance-none`}
-                >
-                  <option value="">Select State</option>
-                  <option value="karnataka">Karnataka</option>
-                  <option value="tamil_nadu">Tamil Nadu</option>
-                  <option value="kerala">Kerala</option>
-                  <option value="maharashtra">Maharashtra</option>
-                  <option value="other">Other</option>
-                </select>
-                {errors.state && <p className="mt-1 text-xs text-red-500">{errors.state.message}</p>}
-              </div>
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full py-3.5 mt-4 rounded-full bg-lotus-dark text-white font-bold text-lg hover:bg-lotus-light transition-all disabled:opacity-70 shadow-lg cursor-pointer"
+              <button 
+                type="submit" 
+                disabled={status === 'submitting'}
+                className="w-full bg-[#E8B13E] text-[#2B0917] font-black text-lg py-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 mt-4 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
               >
-                {isSubmitting ? 'Processing...' : 'Submit'}
+                {status === 'submitting' ? (
+                  <>
+                    <Loader2 size={20} className="animate-spin" /> Sending Details...
+                  </>
+                ) : (
+                  <>
+                    <Send size={20} /> Request Call Back
+                  </>
+                )}
               </button>
+              <div className="mt-6 pt-5 border-t border-gray-100 text-center">
+                <p className="text-xs text-gray-400 font-medium mb-2">
+                  Your information is 100% secure and will not be shared.
+                </p>
+                <p className="text-sm text-gray-600 font-medium">
+                  Prefer email? Reach us at{' '}
+                  <a href="mailto:support@lotusgoldcompany.com" className="text-[#2B0917] font-bold hover:text-[#E8B13E] transition-colors">
+                    support@lotusgoldcompany.com
+                  </a>
+                </p>
+              </div>
             </form>
           )}
         </div>

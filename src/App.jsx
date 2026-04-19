@@ -145,7 +145,7 @@ function App() {
       <nav className="bg-white/95 backdrop-blur-md px-6 py-4 fixed w-full top-0 left-0 shadow-sm border-b border-gray-100 z-50 transition-all">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src={myLogo} alt="Lotus Gold Company" className="h-10 md:h-16 w-auto object-contain cursor-pointer transform scale-[2.5] md:scale-[2.5] origin-left" />
+            <img src={myLogo} alt="Lotus Gold Company" className="h-10 md:h-16 w-auto object-contain cursor-pointer transform scale-[2.5] md:scale-[2.5] origin-left image-render-crisp" />
           </div>
           
           <div className="hidden lg:flex items-center gap-8 text-[15px] font-bold text-gray-700">
@@ -517,7 +517,7 @@ function App() {
               <img 
                 src={myLogo} 
                 alt="Lotus Gold Company" 
-                className="h-full w-auto object-contain brightness-0 invert transform scale-[2.2] origin-center md:origin-left" 
+                className="h-full w-auto object-contain brightness-0 invert transform scale-[2.2] origin-center md:origin-left image-render-crisp" 
               />
             </div>
             <p className="text-sm leading-relaxed max-w-xs text-center md:text-left text-white/70">

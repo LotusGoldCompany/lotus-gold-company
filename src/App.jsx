@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Star, Coins, Unlock, RefreshCw, ArrowRight, Menu, X, Microscope, ShieldCheck, CheckSquare, Phone, Award, FileText, Banknote, Zap, ChevronDown } from 'lucide-react'; 
 import ContactForm from './components/ContactForm';
 import ReviewModal from './components/ReviewModal';
+import NotFound from './components/NotFound';
 import flyer1 from './assets/lgc-1.avif';
 import flyer2 from './assets/lgc-2.avif';
 import flyer3 from './assets/lgc-3.avif';
@@ -71,6 +72,12 @@ const customerReviews = [
 ];
 
 function App() {
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
+  // If the path is not '/' or an empty string, show the 404 page
+  if (currentPath !== "/" && currentPath !== "") {
+    return <NotFound />;
+  }
   const [lang, setLang] = useState('en'); // 'en' or 'kn'
   const t = translations[lang]; // Active dictionary
 
@@ -150,9 +157,9 @@ function App() {
           
           <div className="hidden lg:flex items-center gap-8 text-[15px] font-bold text-gray-700">
             <a href="/" className="hover:text-lotus-gold transition-colors">{t.navHome}</a>
-            <a href="about" className="hover:text-lotus-gold transition-colors">{t.navAbout}</a>
-            <a href="services" className="hover:text-lotus-gold transition-colors">{t.navServices}</a>
-            <a href="faq" className="hover:text-lotus-gold transition-colors">{t.navFaq}</a>
+            <a href="#about" className="hover:text-lotus-gold transition-colors">{t.navAbout}</a>
+            <a href="#services" className="hover:text-lotus-gold transition-colors">{t.navServices}</a>
+            <a href="#faq" className="hover:text-lotus-gold transition-colors">{t.navFaq}</a>
             <button onClick={() => setIsModalOpen(true)} className="hover:text-lotus-gold transition-colors cursor-pointer text-lotus-dark">{t.navContact}</button>
           </div>
           
@@ -194,9 +201,9 @@ function App() {
         {isMobileMenuOpen && (
           <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-gray-100 shadow-2xl py-6 px-6 flex flex-col gap-6 animate-in fade-in slide-in-from-top-2">
             <a href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-gray-800 hover:text-lotus-gold">{t.navHome}</a>
-            <a href="about" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-gray-800 hover:text-lotus-gold">{t.navAbout}</a>
-            <a href="services" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-gray-800 hover:text-lotus-gold">{t.navServices}</a>
-            <a href="faq" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-gray-800 hover:text-lotus-gold">{t.navFaq}</a>
+            <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-gray-800 hover:text-lotus-gold">{t.navAbout}</a>
+            <a href="#services" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-gray-800 hover:text-lotus-gold">{t.navServices}</a>
+            <a href="#faq" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-gray-800 hover:text-lotus-gold">{t.navFaq}</a>
             <button onClick={() => { setIsModalOpen(true); setIsMobileMenuOpen(false); }} className="text-lg font-bold text-left text-gray-800 hover:text-lotus-gold cursor-pointer">
               {t.navContact}
             </button>

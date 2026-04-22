@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react"
 import { Star, Coins, Unlock, RefreshCw, ArrowRight, Menu, X, Microscope, ShieldCheck, CheckSquare, Phone, Award, FileText, Banknote, Zap, ChevronDown } from 'lucide-react'; 
 import ContactForm from './components/ContactForm';
 import ReviewModal from './components/ReviewModal';
@@ -617,6 +618,7 @@ function App() {
       />
       <ReviewModal isOpen={isReviewModalOpen} onClose={() => setIsReviewModalOpen(false)} />
         <Analytics />
+        <SpeedInsights/>
     </div>
   );
 }

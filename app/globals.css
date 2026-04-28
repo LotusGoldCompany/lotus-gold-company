@@ -1,0 +1,88 @@
+/* 1. Import the premium fonts from Google */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Cormorant:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* 2. Define your Lotus Gold Theme Variables */
+@theme {
+  --color-lotus-dark: #4B122C;
+  --color-lotus-light: #6A1238;
+  --color-lotus-gold: #E8B13E;
+
+  /* DESIGN SYSTEM: Two-Zone Palette */
+  /* ALL dark sections use this — Hero, Marquee, Calculator, Carousel, Footer */
+  --color-zone-dark: #1A0510;
+  /* ALL light sections use this — About, Services, How It Works, FAQ, Reviews, Find Us */
+  --color-zone-light: #FDF8EE;
+
+  /* UPGRADED: Replaced Inter with the luxury Montserrat and Cormorant fonts */
+  --font-sans: "Montserrat", system-ui, sans-serif;
+  --font-serif: "Cormorant", Georgia, serif;
+}
+
+/* Apply the Global MNC-Style Foundation */
+@layer base {
+  body {
+    @apply bg-[#FDF8EE] text-gray-900 min-h-screen antialiased selection:bg-lotus-gold selection:text-lotus-dark;
+  }
+}
+
+@layer utilities {
+  .animate-marquee {
+    /* 35 seconds for a smooth, readable scrolling speed */
+    animation: marquee 35s linear infinite;
+  }
+  
+  /* Pause the animation if the user hovers their mouse over it */
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  /* The math to make it loop seamlessly */
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-float-slow {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-float-fast {
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+  }
+
+  /* Gold shimmer sweep for section dividers */
+  .shimmer-gold {
+    position: relative;
+    overflow: hidden;
+  }
+  .shimmer-gold::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 60%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(232,177,62,0.15), transparent);
+    animation: goldSweep 4s ease-in-out infinite;
+  }
+  @keyframes goldSweep {
+    0%   { left: -100%; }
+    50%  { left: 150%; }
+    100% { left: 150%; }
+  }
+}
+
+/* Hide scrollbar for the image carousel but keep functionality */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

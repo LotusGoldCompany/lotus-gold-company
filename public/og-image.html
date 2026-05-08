@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1200px;
+      height: 630px;
+      background: linear-gradient(135deg, #1A0510 0%, #4B122C 50%, #1A0510 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', system-ui, sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+    .gold-accent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: linear-gradient(90deg, #BF953F, #FCF6BA, #B38728, #BF953F);
+    }
+    .content {
+      text-align: center;
+      z-index: 10;
+    }
+    .logo-area {
+      margin-bottom: 30px;
+    }
+    .logo-text {
+      font-size: 72px;
+      font-weight: 800;
+      background: linear-gradient(90deg, #BF953F, #FCF6BA, #B38728);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .tagline {
+      font-size: 42px;
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+    .subtitle {
+      font-size: 28px;
+      color: #E8B13E;
+      font-weight: 500;
+    }
+    .features {
+      display: flex;
+      gap: 40px;
+      margin-top: 40px;
+      justify-content: center;
+    }
+    .feature {
+      color: #fff;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .feature::before {
+      content: "✓";
+      color: #E8B13E;
+      font-weight: bold;
+      font-size: 28px;
+    }
+    .contact {
+      position: absolute;
+      bottom: 40px;
+      color: #fff;
+      font-size: 24px;
+      font-weight: 600;
+    }
+    .pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      background-image: radial-gradient(circle at 20% 80%, #E8B13E 1px, transparent 1px),
+                        radial-gradient(circle at 80% 20%, #E8B13E 1px, transparent 1px);
+      background-size: 100px 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="gold-accent"></div>
+  <div class="pattern"></div>
+  <div class="content">
+    <div class="logo-area">
+      <div class="logo-text">LOTUS GOLD COMPANY</div>
+    </div>
+    <!-- Clear Headline -->
+    <div class="tagline">Get The Best Price For Your Gold</div>
+    <div class="subtitle">Mysuru's Most Trusted Gold Buyer Since 2006</div>
+    <div class="features">
+      <div class="feature">Computer Testing</div>
+      <div class="feature">Instant Cash</div>
+      <div class="feature">No Hidden Charges</div>
+    </div>
+    
+    <!-- Call-to-Action -->
+    <div style="background: #E8B13E; color: #1A0510; padding: 15px 40px; border-radius: 50px; font-weight: bold; font-size: 26px; margin-top: 40px; display: inline-block; box-shadow: 0 10px 30px rgba(232, 177, 62, 0.3);">
+      Get a Free Quote Today!
+    </div>
+  </div>
+  <div class="contact">📞 +91 99450 77757 | 📍 Devaraja Mohalla, Mysuru</div>
+</body>
+</html>

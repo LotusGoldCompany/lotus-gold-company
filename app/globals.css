@@ -76,6 +76,11 @@
     50%  { left: 150%; }
     100% { left: 150%; }
   }
+
+  .image-render-crisp {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
 }
 
 /* Hide scrollbar for the image carousel but keep functionality */

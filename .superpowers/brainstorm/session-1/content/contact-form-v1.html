@@ -1,0 +1,58 @@
+<h2>Refining the Contact Form</h2>
+<p class="subtitle">Adding Gold Details & Cleaning Up Services</p>
+
+<div class="section">
+  <h3>Current Selection Cleanup</h3>
+  <p>I will remove "Gold Exchange" from the service dropdown as requested. The remaining options will be:</p>
+  <ul>
+    <li>Sell Gold for Cash</li>
+    <li>Release Pledged Gold</li>
+    <li>General Enquiry</li>
+  </ul>
+</div>
+
+<div class="options" data-multiselect="false">
+  <div class="option" data-choice="compact" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Compact Grid Layout</h3>
+      <p>Purity and Grams sit side-by-side. Best for keeping the form short and reducing scrolling.</p>
+      <div class="mockup" style="margin-top: 15px;">
+        <div class="mockup-body" style="padding: 15px; background: #f9fafb;">
+          <div style="display: flex; gap: 10px;">
+            <div style="flex: 1;">
+              <div class="label">Purity</div>
+              <div class="mock-input">Select (18K, 22K...)</div>
+            </div>
+            <div style="flex: 1;">
+              <div class="label">Total Grams</div>
+              <div class="mock-input">e.g. 15.5</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="stack" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Stacked Mobile-First</h3>
+      <p>Fields are full-width. Better for older phones and users with larger fingers.</p>
+      <div class="mockup" style="margin-top: 15px;">
+        <div class="mockup-body" style="padding: 15px; background: #f9fafb;">
+          <div class="label">Purity</div>
+          <div class="mock-input">Select (18K, 22K...)</div>
+          <div style="height: 10px;"></div>
+          <div class="label">Total Grams</div>
+          <div class="mock-input">e.g. 15.5</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>Question for You</h3>
+  <p>For the <strong>Purity</strong> field, would you prefer a dropdown with fixed options (18K, 20K, 22K, 24K) or an open text field where the customer can type anything?</p>
+</div>

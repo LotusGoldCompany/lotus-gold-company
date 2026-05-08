@@ -6,7 +6,7 @@ export const metadata = {
   description: "Privacy policy and KYC compliance details for Lotus Gold Company.",
 };
 
-const myLogo = '/lotus-logo.png';
+const myLogo = '/lotus-logo.avif';
 
 const privacyItems = [
   {

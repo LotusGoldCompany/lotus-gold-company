@@ -27,7 +27,7 @@ export default function ReviewModal({ isOpen, onClose }) {
     // Prepare data for Web3Forms
     const submissionData = {
       ...formData,
-      access_key: "f5acb993-861a-473e-a614-5d3b6ecc7b6a", // Using your exact access key
+      access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
       subject: `⭐️ New ${formData.rating}-Star Review from ${formData.name}`,
       from_name: "Lotus Gold Reviews"
     };
@@ -46,7 +46,6 @@ export default function ReviewModal({ isOpen, onClose }) {
 
       if (result.success) {
         setStatus('success');
-        // Reset form and close modal after 2.5 seconds
         setTimeout(() => {
           setFormData({ name: '', rating: 5, message: '' });
           setStatus('idle');
@@ -54,11 +53,9 @@ export default function ReviewModal({ isOpen, onClose }) {
         }, 2500);
       } else {
         setStatus('error');
-        console.error("Review submission failed:", result);
       }
-    } catch (error) {
+    } catch {
       setStatus('error');
-      console.error("Network error:", error);
     }
   };
 

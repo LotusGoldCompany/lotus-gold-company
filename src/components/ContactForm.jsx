@@ -6,7 +6,9 @@ export default function ContactForm({ isOpen, onClose, onUnlock }) {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    service: 'Sell Gold',
+    service: 'Sell Gold for Cash',
+    grams: '',
+    purity: '22K',
     message: ''
   });
 
@@ -23,7 +25,7 @@ export default function ContactForm({ isOpen, onClose, onUnlock }) {
     // Prepare data for Web3Forms
     const submissionData = {
       ...formData,
-      access_key: "f5acb993-861a-473e-a614-5d3b6ecc7b6a",
+      access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
       subject: `New Lead: ${formData.service} - ${formData.name}`,
       from_name: "Lotus Gold Automated System"
     };
@@ -43,19 +45,16 @@ export default function ContactForm({ isOpen, onClose, onUnlock }) {
       if (result.success) {
         setStatus('success');
         if (onUnlock) onUnlock();
-        // Reset form and close modal after 2.5 seconds
         setTimeout(() => {
-          setFormData({ name: '', phone: '', service: 'Sell Gold', message: '' });
+          setFormData({ name: '', phone: '', service: 'Sell Gold for Cash', grams: '', purity: '22K', message: '' });
           setStatus('idle');
           onClose();
         }, 2500);
       } else {
         setStatus('error');
-        console.error("Form submission failed:", result);
       }
-    } catch (error) {
+    } catch {
       setStatus('error');
-      console.error("Network error:", error);
     }
   };
 
@@ -68,24 +67,26 @@ export default function ContactForm({ isOpen, onClose, onUnlock }) {
       ></div>
 
       {/* Modal Container */}
-      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-lg relative z-10 overflow-hidden animate-in fade-in zoom-in duration-300">
+      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-xl relative z-10 overflow-hidden animate-in fade-in zoom-in duration-300 flex flex-col max-h-[95vh] overflow-y-auto">
         
-        {/* Header */}
-        <div className="bg-gradient-to-r from-[#2B0917] to-[#4B122C] p-6 text-white flex justify-between items-center">
-          <div>
-            <h3 className="text-2xl font-black">Get in Touch</h3>
-            <p className="text-[#E8B13E] text-sm font-medium mt-1">We'll get back to you within 15 minutes.</p>
+        {/* Form Section */}
+        <div className="w-full flex flex-col bg-white">
+          {/* Header */}
+          <div className="flex justify-between items-start p-6 md:p-8 pb-2">
+            <div>
+              <h3 className="text-2xl font-black text-[#2B0917]">Get in Touch</h3>
+              <p className="text-gray-500 text-sm font-medium mt-1">We'll get back to you within 15 minutes.</p>
+            </div>
+            <button 
+              onClick={onClose} 
+              className="text-gray-400 hover:text-gray-900 bg-gray-100 hover:bg-gray-200 p-2 rounded-full transition-colors cursor-pointer"
+            >
+              <X size={20} />
+            </button>
           </div>
-          <button 
-            onClick={onClose} 
-            className="text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors cursor-pointer"
-          >
-            <X size={20} />
-          </button>
-        </div>
 
-        {/* Dynamic Body Area */}
-        <div className="p-8">
+          {/* Dynamic Body Area */}
+          <div className="p-6 md:p-8 pt-4">
           {/* SUCCESS STATE */}
           {status === 'success' ? (
             <div className="flex flex-col items-center justify-center py-10 text-center animate-in fade-in zoom-in">
@@ -138,6 +139,37 @@ export default function ContactForm({ isOpen, onClose, onUnlock }) {
               </div>
 
               <div>
+                <label className="block text-sm font-bold text-gray-700 mb-1.5">Total Grams (Approx) *</label>
+                <input 
+                  type="number" 
+                  name="grams"
+                  step="0.01"
+                  required
+                  value={formData.grams}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#E8B13E] focus:border-transparent outline-none transition-all font-medium text-gray-900"
+                  placeholder="e.g. 15.5"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-1.5">Gold Purity *</label>
+                <select 
+                  name="purity"
+                  required
+                  value={formData.purity}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#E8B13E] focus:border-transparent outline-none transition-all font-medium text-gray-900"
+                >
+                  <option value="18K">18K</option>
+                  <option value="20K">20K</option>
+                  <option value="22K">22K</option>
+                  <option value="24K">24K</option>
+                  <option value="Other / Not Sure">Other / Not Sure</option>
+                </select>
+              </div>
+
+              <div>
                 <label className="block text-sm font-bold text-gray-700 mb-1.5">How can we help you? *</label>
                 <select 
                   name="service"
@@ -147,7 +179,6 @@ export default function ContactForm({ isOpen, onClose, onUnlock }) {
                 >
                   <option>Sell Gold for Cash</option>
                   <option>Release Pledged Gold</option>
-                  <option>Gold Exchange</option>
                   <option>General Enquiry</option>
                 </select>
               </div>
@@ -180,6 +211,7 @@ export default function ContactForm({ isOpen, onClose, onUnlock }) {
               </div>
             </form>
           )}
+          </div>
         </div>
       </div>
     </div>

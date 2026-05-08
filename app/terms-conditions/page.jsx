@@ -6,7 +6,7 @@ export const metadata = {
   description: "Terms and conditions, legal information, and compliance policies for Lotus Gold Company.",
 };
 
-const myLogo = '/lotus-logo.png';
+const myLogo = '/lotus-logo.avif';
 
 const termItems = [
   {

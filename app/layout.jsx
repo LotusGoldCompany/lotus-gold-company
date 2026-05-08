@@ -59,8 +59,8 @@ export const metadata = {
     images: ["https://lotusgoldcompany.com/og-image.png"],
   },
   icons: {
-    icon: "/favicon.avif",
-    apple: "/favicon.avif",
+    icon: "/favicon.png",
+    apple: "/favicon.png",
   },
   verification: {
     google: "kWvi9vXgpsmfx3pw5Vd0wTh7QDTjZRXSz4phhE6aHl8",

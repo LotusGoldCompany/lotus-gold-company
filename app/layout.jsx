@@ -5,7 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
   metadataBase: new URL("https://lotusgoldcompany.com"),
-  title: "Lotus Gold Company | Best Gold Buyer | Sell Gold & Release Pledged Gold",
+  title: "Lotus Gold Company | Maximum Value For Your Gold | Sell Gold & Release Pledged Gold",
   description: "Lotus Gold Company in Devaraja Mohalla — Sell gold, release pledged gold from bank loans, and get instant cash at live market rates. Computer-tested purity. No hidden charges. Trusted since 2006. Call +91 99450 77757.",
   keywords: [
     "sell gold mysore", "gold buyers in mysore",
@@ -37,8 +37,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Lotus Gold Company | Best Gold Buyer",
-    description: "Sell gold, release pledged gold, get instant cash at live market rates. Honest computer testing. No hidden charges. Most trusted gold buyer since 2006.",
+    title: "Lotus Gold Company | Maximum Value For Your Gold",
+    description: "We help you get maximum value safely and instantly. Release pledged gold, get spot cash at live market rates. Honest computer testing. No hidden charges.",
     url: "https://lotusgoldcompany.com",
     siteName: "Lotus Gold Company",
     images: [
@@ -54,8 +54,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lotus Gold Company | #1 Trusted Gold Buyer",
-    description: "Sell gold & release pledged gold at live market rates. Honest computer testing. No hidden charges. Call +91 99450 77757.",
+    title: "Lotus Gold Company | Maximum Value For Your Gold",
+    description: "We help you get maximum value safely and instantly. Honest computer testing. No hidden charges. Call +91 99450 77757.",
     images: ["https://lotusgoldcompany.com/og-image.png"],
   },
   icons: {

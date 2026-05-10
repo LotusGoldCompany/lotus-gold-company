@@ -21,68 +21,68 @@ const translations = {
   en: {
     navHome: "Home", navAbout: "About Us", navServices: "Services", navFaq: "FAQ", navContact: "Contact Us",
     unlockRate: "Unlock Live Rate", fetching: "Fetching...", live: "Live",
-    heroSub: "#1 Gold Buyers", heroTitle: "Lotus", heroHighlight: "Gold Company",
+    heroSub: "Maximum Value. Instantly.", heroTitle: "Lotus", heroHighlight: "Gold Company",
     heroTagline: "Your Gold. Our Promise.",
-    heroSubHead1: "The Best Gold Buyers - ", heroSubHead2: "Instant Cash | 100% Transparent",
-    btnGetQuote: "Get Free Quote",
-    heroHead: "Get the Best Price for Your Gold.",
-    heroDesc: "We help you release pledged gold from banks and pay instant spot cash. Honest testing, clear pricing, and no hidden fees.",
-    btnContact: "Contact Us Now", btnCheckRate: "Check Today's Gold Price",
+    heroSubHead1: "We help you get maximum value - ", heroSubHead2: "Safely & Instantly",
+    btnGetQuote: "Get Free Gold Valuation",
+    heroHead: "Get the Best Price for Your Gold in Mysore.",
+    heroDesc: "We help you release pledged gold from banks and pay instant spot cash. Honest testing, clear pricing, and no hidden fees for anyone searching to sell gold near me.",
+    btnContact: "Call Now", btnCheckRate: "Check Today's Gold Price",
     reviews: "200+ Happy Customers", tested: "Tested",
-    t1: "Computer Gold Testing", t2: "100% Safe & Secure", t3: "No Hidden Charges", t4: "Call +91 99450 77757", t5: "Trusted Gold Buyer Since 2006", t6: "GST Bill Provided", t7: "Best Market Rate for Gold", t8: "Instant Cash Payment for Gold",
-    aboutTag: "Our Story", aboutTitle: "The Most Trusted Gold Buyers", aboutCity: "",
-    aboutP1: "Located in Devaraja Mohalla, Lotus Gold Company was started with one simple goal: to be the most honest and professional gold buyers.",
+    t1: "Computer Gold Testing", t2: "100% Safe & Secure", t3: "No Hidden Charges", t4: "Call +91 99450 77757", t5: "Maximum Value Since 2006", t6: "GST Bill Provided", t7: "Best Market Rate for Gold", t8: "Instant Cash Payment for Gold",
+    aboutTag: "Our Promise", aboutTitle: "Maximum Value For Your Gold", aboutCity: "",
+    aboutP1: "Located in Devaraja Mohalla, Lotus Gold Company was started with one simple goal to help you get maximum value safely and instantly.",
     aboutP2: "Since 2006, we have helped thousands of families get instant cash for their jewelry or free their gold from high-interest bank loans. We don't guess the price—we use computer testing to give you the exact live market rate for your gold, right in front of your eyes.",
     compTesting: "Computer Testing", accurateScales: "Accurate & Safe Scales",
     est: "Year Established", happy: "Happy Customers", honest: "Honest Process", hidden: "Hidden Charges",
     srvTitle: "How We Can Help You", srvSub: "We provide the fastest and safest gold services.",
     srv1: "Sell Gold for Cash", srv1Desc: "Get instant cash for your gold. We test it safely in front of you and pay the best daily price.", btnCash: "Get Cash Today",
     popular: "Most Popular", srv2: "Release Pledged Gold", srv2Desc: "Stuck with a bank gold loan? We will come to the bank with you, pay off your loan, and give you the remaining balance in cash.", btnFree: "Free Your Gold",
-    srv3: "Free Gold Valuation", srv3Desc: "Know the true market value of your gold before you sell. We use advanced computer testing for 100% accuracy.", btnLearn: "Get Free Quote",
+    srv3: "Free Gold Valuation", srv3Desc: "Know the true market value of your gold before you sell. We use advanced computer testing for 100% accuracy.", btnLearn: "Get Free Gold Valuation",
     whyTitle: "Why Choose Us?", whySub: "Swipe to see why thousands of families trust Lotus Gold Company.",
     faqTitle: "Frequently Asked Questions", faqSub: "Everything you need to know before visiting our branch.",
     revTitle: "What Our Customers Say", revSub: "Trusted for honest testing, fast payouts, and helpful service.", btnWrite: "Write a Review",
-    ftDesc: "The #1 gold buyers. Experience 100% transparent, tech-driven gold valuation and instant cash payouts.",
+    ftDesc: "Experience 100% transparent, tech-driven gold valuation. We help you get maximum value safely and instantly in Mysore.",
     ftPhone: "Phone:", ftEmail: "Email:", ftLegal: "Legal Disclaimer", ftLegalDesc: "The gold rates displayed are based on live online market feeds. Final payout values may vary based on actual purity testing using our advanced computer hardware.", ftRights: "All rights reserved."
   },
   kn: {
     navHome: "ಮುಖಪುಟ", navAbout: "ನಮ್ಮ ಬಗ್ಗೆ", navServices: "ಸೇವೆಗಳು", navFaq: "ಪ್ರಶ್ನೋತ್ತರಗಳು", navContact: "ಸಂಪರ್ಕಿಸಿ",
     unlockRate: "ಲೈವ್ ದರ ವೀಕ್ಷಿಸಿ", fetching: "ಪಡೆಯಲಾಗುತ್ತಿದೆ...", live: "ಲೈವ್",
-    heroSub: "#1 ಚಿನ್ನದ ಖರೀದಿದಾರರು", heroTitle: "ಲೋಟಸ್", heroHighlight: "ಗೋಲ್ಡ್ ಕಂಪನಿ",
+    heroSub: "ಗರಿಷ್ಠ ಮೌಲ್ಯ. ತಕ್ಷಣವೇ.", heroTitle: "ಲೋಟಸ್", heroHighlight: "ಗೋಲ್ಡ್ ಕಂಪನಿ",
     heroTagline: "ನಿಮ್ಮ ಚಿನ್ನ. ನಮ್ಮ ಭರವಸೆ.",
-    heroSubHead1: "ಅತ್ಯುತ್ತಮ ಚಿನ್ನದ ಖರೀದಿದಾರರು - ", heroSubHead2: "ತಕ್ಷಣ ನಗದು | 100% ಪಾರದರ್ಶಕ",
-    btnGetQuote: "ಉಚಿತ ಬೆಲೆ ತಿಳಿಯಿರಿ",
+    heroSubHead1: "ಗರಿಷ್ಠ ಮೌಲ್ಯ ಪಡೆಯಲು ನಾವು ಸಹಾಯ ಮಾಡುತ್ತೇವೆ - ", heroSubHead2: "ಸುರಕ್ಷಿತವಾಗಿ ಮತ್ತು ತಕ್ಷಣವೇ",
+    btnGetQuote: "ಉಚಿತ ಚಿನ್ನದ ಮೌಲ್ಯಮಾಪನ ಪಡೆಯಿರಿ",
     heroHead: "ಮೈಸೂರಿನಲ್ಲಿ ನಿಮ್ಮ ಚಿನ್ನಕ್ಕೆ ಉತ್ತಮ ಬೆಲೆ ಪಡೆಯಿರಿ.",
     heroDesc: "ಬ್ಯಾಂಕ್‌ಗಳಲ್ಲಿ ಅಡವಿಟ್ಟಿರುವ ನಿಮ್ಮ ಚಿನ್ನವನ್ನು ಬಿಡಿಸಿ, ತಕ್ಷಣವೇ ನಗದು ಹಣವನ್ನು ಪಡೆಯಲು ನಾವು ಸಹಾಯ ಮಾಡುತ್ತೇವೆ. ನಿಖರವಾದ ಪರೀಕ್ಷೆ, ಪಾರದರ್ಶಕ ಬೆಲೆ, ಯಾವುದೇ ಗುಪ್ತ ಶುಲ್ಕಗಳಿಲ್ಲ.",
-    btnContact: "ಈಗಲೇ ಸಂಪರ್ಕಿಸಿ", btnCheckRate: "ಇಂದಿನ ಚಿನ್ನದ ಬೆಲೆ ಪರಿಶೀಲಿಸಿ",
+    btnContact: "ಈಗಲೇ ಕರೆ ಮಾಡಿ", btnCheckRate: "ಇಂದಿನ ಚಿನ್ನದ ಬೆಲೆ ಪರಿಶೀಲಿಸಿ",
     reviews: "200+ ಸಂತೃಪ್ತ ಗ್ರಾಹಕರು", tested: "ಪರೀಕ್ಷಿಸಲಾಗಿದೆ",
     t1: "ಕಂಪ್ಯೂಟರ್ ಚಿನ್ನ ಪರೀಕ್ಷೆ", t2: "100% ಸುರಕ್ಷಿತ", t3: "ಯಾವುದೇ ಗುಪ್ತ ಶುಲ್ಕಗಳಿಲ್ಲ", t4: "ಕರೆ: 99450 77757", t5: "2006 ರಿಂದ ನಂಬಿಕಾರ್ಹ ಚಿನ್ನ ಖರೀದಿದಾರ", t6: "GST ಬಿಲ್ ಲಭ್ಯವಿದೆ", t7: "ಚಿನ್ನಕ್ಕೆ ಉತ್ತಮ ಮಾರುಕಟ್ಟೆ ದರ", t8: "ಚಿನ್ನಕ್ಕೆ ತಕ್ಷಣದ ನಗದು ಪಾವತಿ",
 
     // UPDATED ABOUT SECTION VARIABLES
-    aboutTag: "ನಮ್ಮ ಕಥೆ",
+    aboutTag: "ನಮ್ಮ ಭರವಸೆ",
     aboutCity: "ಚಿನ್ನದಲ್ಲಿ",
-    aboutTitle: "ನೀವು ನಂಬಬಹುದಾದ ಹೆಸರು",
+    aboutTitle: "ನಿಮ್ಮ ಚಿನ್ನಕ್ಕೆ ಗರಿಷ್ಠ ಮೌಲ್ಯ",
 
-    aboutP1: "ಮೈಸೂರಿನ ದೇವರಾಜ ಮೊಹಲ್ಲಾದಲ್ಲಿರುವ ಲೋಟಸ್ ಗೋಲ್ಡ್ ಕಂಪನಿಯನ್ನು ಒಂದೇ ಉದ್ದೇಶದಿಂದ ಪ್ರಾರಂಭಿಸಲಾಯಿತು: ಜನರಿಗೆ ತಮ್ಮ ಚಿನ್ನವನ್ನು ಮಾರಾಟ ಮಾಡಲು ಸುರಕ್ಷಿತ, ಪ್ರಾಮಾಣಿಕ ಮತ್ತು ಸುಲಭವಾದ ವ್ಯವಸ್ಥೆಯನ್ನು ಕಲ್ಪಿಸುವುದು.",
+    aboutP1: "ಮೈಸೂರಿನ ದೇವರಾಜ ಮೊಹಲ್ಲಾದಲ್ಲಿರುವ ಲೋಟಸ್ ಗೋಲ್ಡ್ ಕಂಪನಿಯನ್ನು ಒಂದೇ ಉದ್ದೇಶದಿಂದ ಪ್ರಾರಂಭಿಸಲಾಯಿತು: ಸುರಕ್ಷಿತವಾಗಿ ಮತ್ತು ತಕ್ಷಣವೇ ಗರಿಷ್ಠ ಮೌಲ್ಯ ಪಡೆಯಲು ನಿಮಗೆ ಸಹಾಯ ಮಾಡುವುದು.",
     aboutP2: "2006 ರಿಂದ, ಸಾವಿರಾರು ಕುಟುಂಬಗಳಿಗೆ ತಮ್ಮ ಆಭರಣಗಳಿಗೆ ತಕ್ಷಣದ ನಗದು ಪಡೆಯಲು ಮತ್ತು ಅತಿ ಹೆಚ್ಚಿನ ಬಡ್ಡಿಯ ಬ್ಯಾಂಕ್ ಸಾಲದಿಂದ ಚಿನ್ನವನ್ನು ಬಿಡಿಸಲು ನಾವು ಸಹಾಯ ಮಾಡಿದ್ದೇವೆ. ನಾವು ಬೆಲೆಯನ್ನು ಅಂದಾಜು ಮಾಡುವುದಿಲ್ಲ; ಬದಲಾಗಿ, ಸುಧಾರಿತ ಕಂಪ್ಯೂಟರ್ ಪರೀಕ್ಷೆಯ ಮೂಲಕ ನಿಮ್ಮ ಕಣ್ಣೆದುರೇ ನಿಖರವಾದ ಲೈವ್ ಮಾರುಕಟ್ಟೆ ದರವನ್ನು ನೀಡುತ್ತೇವೆ.",
     compTesting: "ಕಂಪ್ಯೂಟರ್ ಪರೀಕ್ಷೆ", accurateScales: "ನಿಖರ ಮತ್ತು ಸುರಕ್ಷಿತ ಮಾಪಕಗಳು",
     est: "ಸ್ಥಾಪನೆಯಾದ ವರ್ಷ", happy: "ಸಂತೃಪ್ತ ಗ್ರಾಹಕರು", honest: "ಪ್ರಾಮಾಣಿಕ ಪ್ರಕ್ರಿಯೆ", hidden: "ಗುಪ್ತ ಶುಲ್ಕಗಳಿಲ್ಲ",
     srvTitle: "ನಾವು ನಿಮಗೆ ಹೇಗೆ ನೆರವಾಗುತ್ತೇವೆ?", srvSub: "ಮೈಸೂರಿನ ಅತ್ಯಂತ ವೇಗವಾದ ಮತ್ತು ಸುರಕ್ಷಿತ ಚಿನ್ನದ ಸೇವೆಗಳನ್ನು ನಾವು ಒದಗಿಸುತ್ತೇವೆ.",
     srv1: "ಚಿನ್ನದ ಮಾರಾಟಕ್ಕೆ ನಗದು", srv1Desc: "ನಿಮ್ಮ ಹಳೆಯ ಅಥವಾ ಬಳಸದ ಚಿನ್ನದ ಆಭರಣಗಳಿಗೆ ತಕ್ಷಣದ ನಗದು ಪಡೆಯಿರಿ. ನಿಮ್ಮ ಮುಂದೆಯೇ ಶುದ್ಧತೆಯನ್ನು ಪರಿಶೀಲಿಸಿ, ಇಂದಿನ ಲೈವ್ ಮಾರುಕಟ್ಟೆ ದರವನ್ನು ಪಾವತಿಸುತ್ತೇವೆ.", btnCash: "ಇಂದೇ ನಗದು ಪಡೆಯಿರಿ",
     popular: "ಅತಿ ಹೆಚ್ಚು ಬೇಡಿಕೆ", srv2: "ಅಡವಿಟ್ಟ ಚಿನ್ನ ಬಿಡಿಸಿ", srv2Desc: "ನಿಮ್ಮ ಚಿನ್ನ ಬ್ಯಾಂಕ್ ಸಾಲದಲ್ಲಿ ಸಿಲುಕಿದೆಯೇ? ನಾವು ನಿಮ್ಮೊಂದಿಗೆ ಬ್ಯಾಂಕ್‌ಗೆ ಬಂದು, ಸಾಲವನ್ನು ತೀರಿಸಿ, ಉಳಿದ ಮೊತ್ತವನ್ನು ನಿಮಗೆ ನಗದು ರೂಪದಲ್ಲಿ ನೀಡುತ್ತೇವೆ.", btnFree: "ನಿಮ್ಮ ಚಿನ್ನವನ್ನು ಮುಕ್ತಗೊಳಿಸಿ",
-    srv3: "ಉಚಿತ ಚಿನ್ನದ ಮೌಲ್ಯಮಾಪನ", srv3Desc: "ನೀವು ಮಾರಾಟ ಮಾಡುವ ಮೊದಲು ನಿಮ್ಮ ಚಿನ್ನದ ನಿಜವಾದ ಮಾರುಕಟ್ಟೆ ಮೌಲ್ಯವನ್ನು ತಿಳಿಯಿರಿ. 100% ನಿಖರತೆಗಾಗಿ ನಾವು ಸುಧಾರಿತ ಕಂಪ್ಯೂಟರ್ ಪರೀಕ್ಷೆಯನ್ನು ಬಳಸುತ್ತೇವೆ.", btnLearn: "ಉಚಿತ ಬೆಲೆ ತಿಳಿಯಿರಿ",
+    srv3: "ಉಚಿತ ಚಿನ್ನದ ಮೌಲ್ಯಮಾಪನ", srv3Desc: "ನೀವು ಮಾರಾಟ ಮಾಡುವ ಮೊದಲು ನಿಮ್ಮ ಚಿನ್ನದ ನಿಜವಾದ ಮಾರುಕಟ್ಟೆ ಮೌಲ್ಯವನ್ನು ತಿಳಿಯಿರಿ. 100% ನಿಖರತೆಗಾಗಿ ನಾವು ಸುಧಾರಿತ ಕಂಪ್ಯೂಟರ್ ಪರೀಕ್ಷೆಯನ್ನು ಬಳಸುತ್ತೇವೆ.", btnLearn: "ಉಚಿತ ಚಿನ್ನದ ಮೌಲ್ಯಮಾಪನ ಪಡೆಯಿರಿ",
     whyTitle: "ನಮ್ಮನ್ನು ಏಕೆ ಆರಿಸಬೇಕು?", whySub: "ಸಾವಿರಾರು ಕುಟುಂಬಗಳು ಲೋಟಸ್ ಗೋಲ್ಡ್ ಕಂಪನಿಯನ್ನು ಏಕೆ ನಂಬುತ್ತಾರೆ ಎಂದು ತಿಳಿಯಿರಿ.",
     faqTitle: "ಪದೇ ಪದೇ ಕೇಳಲಾಗುವ ಪ್ರಶ್ನೆಗಳು", faqSub: "ನಮ್ಮ ಶಾಖೆಗೆ ಭೇಟಿ ನೀಡುವ ಮುನ್ನ ನೀವು ತಿಳಿದುಕೊಳ್ಳಬೇಕಾದ ಪ್ರಮುಖ ಅಂಶಗಳು.",
     revTitle: "ಗ್ರಾಹಕರ ಅನಿಸಿಕೆಗಳು", revSub: "ಪ್ರಾಮಾಣಿಕ ಪರೀಕ್ಷೆ, ತ್ವರಿತ ಪಾವತಿ ಮತ್ತು ಉತ್ತಮ ಸೇವೆಗಾಗಿ ಜನರ ನಂಬಿಕೆಗೆ ಪಾತ್ರವಾಗಿದೆ.", btnWrite: "ವಿಮರ್ಶೆ ಬರೆಯಿರಿ",
-    ftDesc: "ಅತ್ಯಂತ ನಂಬಿಕಾರ್ಹ ಚಿನ್ನ ಮೌಲ್ಯಮಾಪನ ಮತ್ತು ಖರೀದಿ ಕಂಪನಿ. 100% ಪಾರದರ್ಶಕ ಮತ್ತು ತಂತ್ರಜ್ಞಾನ ಆಧಾರಿತ ವಹಿವಾಟುಗಳನ್ನು ಅನುಭವಿಸಿ.",
+    ftDesc: "100% ಪಾರದರ್ಶಕ ಮತ್ತು ತಂತ್ರಜ್ಞಾನ ಆಧಾರಿತ ಚಿನ್ನದ ಮೌಲ್ಯಮಾಪನ. ಸುರಕ್ಷಿತವಾಗಿ ಮತ್ತು ತಕ್ಷಣವೇ ಗರಿಷ್ಠ ಮೌಲ್ಯ ಪಡೆಯಲು ನಾವು ಸಹಾಯ ಮಾಡುತ್ತೇವೆ.",
     ftPhone: "ಫೋನ್:", ftEmail: "ಇಮೇಲ್:", ftLegal: "ಕಾನೂನು ಹಕ್ಕು ನಿರಾಕರಣೆ", ftLegalDesc: "ಇಲ್ಲಿ ಪ್ರದರ್ಶಿಸಲಾದ ಚಿನ್ನದ ದರಗಳು ಲೈವ್ ಆನ್‌ಲೈನ್ ಮಾರುಕಟ್ಟೆಯನ್ನು ಆಧರಿಸಿವೆ. ನಮ್ಮ ಸುಧಾರಿತ ಕಂಪ್ಯೂಟರ್ ಹಾರ್ಡ್‌ವೇರ್ ಬಳಸುವ ನೈಜ ಶುದ್ಧತೆಯ ಪರೀಕ್ಷೆಯ ಆಧಾರದ ಮೇಲೆ ಅಂತಿಮ ಪಾವತಿ ಮೌಲ್ಯವು ಬದಲಾಗಬಹುದು.", ftRights: "ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ."
   }
 };
 
 const customerReviews = [
-  { name: "Mageshwari", rating: 5, date: "13 Mar", text: "I am very happy with my experience at Lotus Gold Company. I released my pledged gold and sold it here, and the process was quick, transparent, and hassle-free." },
+  { name: "Rajesh", rating: 5, date: "13 Mar", text: "I am very happy with my experience at Lotus Gold Company. I released my pledged gold and sold it here, and the process was quick, transparent, and hassle-free." },
   { name: "Arvindh", rating: 5, date: "12 Mar", text: "Very good service from Lotus Gold Company they help me retrieve my gold from a gold loan and also assisted in selling it at a very good price." },
-  { name: "Jude", rating: 5, date: "28 Mar", text: "The deal was transparent, got value as expected as online gold price.. I appreciate mr Rajesh.. Thank you." }
+  { name: "Manjesh", rating: 5, date: "28 Mar", text: "The deal was transparent, got value as expected as online gold price.. I appreciate.. Thank you." }
 ];
 
 function App() {
@@ -171,78 +171,80 @@ function App() {
     <div className="min-h-screen flex flex-col font-sans bg-[#FDF8EE] overflow-x-hidden">
 
       {/* NAVBAR */}
-      <nav className="bg-white/95 backdrop-blur-md px-6 py-4 fixed w-full top-0 left-0 shadow-sm border-b border-gray-100 z-50 transition-all">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <img src={myLogo} alt="Lotus Gold Company - Gold Buyer" width={160} height={64} className="h-10 md:h-16 w-auto object-contain cursor-pointer transform scale-[2.5] md:scale-[2.5] origin-left image-render-crisp" />
-          </div>
-
-          <div className="hidden lg:flex items-center gap-8 text-[15px] font-bold text-gray-700">
-            <a href="/" className="hover:text-lotus-gold transition-colors">{t.navHome}</a>
-            <a href="#about" className="hover:text-lotus-gold transition-colors">{t.navAbout}</a>
-            <a href="#services" className="hover:text-lotus-gold transition-colors">{t.navServices}</a>
-            <a href="#faq" className="hover:text-lotus-gold transition-colors">{t.navFaq}</a>
-            <button onClick={() => setIsModalOpen(true)} className="hover:text-lotus-gold transition-colors cursor-pointer text-lotus-dark">{t.navContact}</button>
-          </div>
-
-          <div className="hidden md:flex items-center gap-4">
-            {/* LANGUAGE TOGGLE SWITCH */}
-            <div className="flex items-center bg-gray-100/80 p-1 rounded-full border border-gray-200/50 shadow-inner">
-              <button onClick={() => setLang('en')} className={`px-4 py-1.5 rounded-full text-xs font-black tracking-wide transition-all duration-300 ${lang === 'en' ? 'bg-white shadow-[0_2px_10px_rgba(0,0,0,0.1)] text-lotus-dark' : 'text-gray-500 hover:text-gray-700'}`}>
-                ENG
-              </button>
-              <button onClick={() => setLang('kn')} className={`px-4 py-1.5 rounded-full text-xs font-black tracking-wide transition-all duration-300 ${lang === 'kn' ? 'bg-white shadow-[0_2px_10px_rgba(0,0,0,0.1)] text-lotus-dark' : 'text-gray-500 hover:text-gray-700'}`}>
-                ಕನ್ನಡ
-              </button>
+      <div className="fixed w-full top-0 md:top-6 left-0 z-50 flex justify-center px-0 md:px-6 pointer-events-none">
+        <nav className="w-full max-w-7xl bg-white/90 backdrop-blur-xl px-6 py-3.5 md:rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.08)] border-b md:border border-white/50 pointer-events-auto transition-all duration-300">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <img src={myLogo} alt="Lotus Gold Company - Gold Buyer" width={160} height={64} className="h-10 md:h-14 w-auto object-contain cursor-pointer transform scale-[2.2] md:scale-[2.5] origin-left image-render-crisp drop-shadow-sm" />
             </div>
 
-            <button onClick={() => setIsModalOpen(true)} className="bg-lotus-gold text-lotus-dark font-bold px-6 py-2.5 rounded-lg hover:bg-[#f5c35b] transition-all shadow-[0_0_15px_rgba(232,177,62,0.4)] flex justify-center items-center min-w-[150px] cursor-pointer">
-              {!isPriceUnlocked ? (
-                <span className="flex items-center gap-2"><Unlock size={16} /> {t.unlockRate}</span>
-              ) : goldRateText === t.fetching ? (
-                <span className="animate-pulse">{t.fetching}</span>
-              ) : (
-                <span>{t.live}: {goldRateText}</span>
-              )}
-            </button>
-          </div>
-
-          <div className="md:hidden flex items-center gap-4">
-            {/* MOBILE LANGUAGE TOGGLE */}
-            <div className="flex items-center bg-gray-100 p-1 rounded-full shadow-inner">
-              <button onClick={() => setLang('en')} className={`px-3 py-1 rounded-full text-[10px] font-black transition-all ${lang === 'en' ? 'bg-white shadow-sm text-lotus-dark' : 'text-gray-500'}`}>EN</button>
-              <button onClick={() => setLang('kn')} className={`px-3 py-1 rounded-full text-[10px] font-black transition-all ${lang === 'kn' ? 'bg-white shadow-sm text-lotus-dark' : 'text-gray-500'}`}>ಕ</button>
+            <div className="hidden lg:flex items-center gap-8 text-[15px] font-bold text-gray-700 bg-gray-50/50 px-8 py-2.5 rounded-full border border-gray-100/50">
+              <a href="/" className="hover:text-lotus-gold transition-colors">{t.navHome}</a>
+              <a href="#about" className="hover:text-lotus-gold transition-colors">{t.navAbout}</a>
+              <a href="#services" className="hover:text-lotus-gold transition-colors">{t.navServices}</a>
+              <a href="#faq" className="hover:text-lotus-gold transition-colors">{t.navFaq}</a>
+              <button onClick={() => setIsModalOpen(true)} className="hover:text-lotus-gold transition-colors cursor-pointer text-lotus-dark">{t.navContact}</button>
             </div>
-            <button className="text-lotus-dark focus:outline-none cursor-pointer" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-              {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
-          </div>
-        </div>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-gray-100 shadow-2xl py-6 px-6 flex flex-col gap-6 animate-in fade-in slide-in-from-top-2">
-            <a href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-gray-800 hover:text-lotus-gold">{t.navHome}</a>
-            <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-gray-800 hover:text-lotus-gold">{t.navAbout}</a>
-            <a href="#services" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-gray-800 hover:text-lotus-gold">{t.navServices}</a>
-            <a href="#faq" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-gray-800 hover:text-lotus-gold">{t.navFaq}</a>
-            <button onClick={() => { setIsModalOpen(true); setIsMobileMenuOpen(false); }} className="text-lg font-bold text-left text-gray-800 hover:text-lotus-gold cursor-pointer">
-              {t.navContact}
-            </button>
-            <div className="pt-4 border-t border-gray-100">
-              <button onClick={() => { setIsModalOpen(true); setIsMobileMenuOpen(false); }} className="bg-lotus-gold text-lotus-dark font-bold px-6 py-3.5 rounded-lg flex items-center justify-center shadow-md w-full cursor-pointer">
+            <div className="hidden md:flex items-center gap-4">
+              {/* LANGUAGE TOGGLE SWITCH */}
+              <div className="flex items-center bg-gray-100/80 p-1 rounded-full border border-gray-200/50 shadow-inner">
+                <button onClick={() => setLang('en')} className={`px-4 py-1.5 rounded-full text-xs font-black tracking-wide transition-all duration-300 ${lang === 'en' ? 'bg-white shadow-[0_2px_10px_rgba(0,0,0,0.1)] text-lotus-dark' : 'text-gray-500 hover:text-gray-700'}`}>
+                  ENG
+                </button>
+                <button onClick={() => setLang('kn')} className={`px-4 py-1.5 rounded-full text-xs font-black tracking-wide transition-all duration-300 ${lang === 'kn' ? 'bg-white shadow-[0_2px_10px_rgba(0,0,0,0.1)] text-lotus-dark' : 'text-gray-500 hover:text-gray-700'}`}>
+                  ಕನ್ನಡ
+                </button>
+              </div>
+
+              <button onClick={() => setIsModalOpen(true)} className="bg-gradient-to-r from-lotus-gold to-[#f5c35b] text-lotus-dark font-bold px-6 py-2.5 rounded-xl hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(232,177,62,0.3)] flex justify-center items-center min-w-[150px] cursor-pointer">
                 {!isPriceUnlocked ? (
-                  <span className="flex items-center gap-2"><Unlock size={18} /> {t.unlockRate}</span>
+                  <span className="flex items-center gap-2"><Unlock size={16} /> {t.unlockRate}</span>
                 ) : goldRateText === t.fetching ? (
-                  t.fetching
+                  <span className="animate-pulse">{t.fetching}</span>
                 ) : (
-                  `${t.live}: ${goldRateText}`
+                  <span>{t.live}: {goldRateText}</span>
                 )}
               </button>
             </div>
+
+            <div className="md:hidden flex items-center gap-4">
+              {/* MOBILE LANGUAGE TOGGLE */}
+              <div className="flex items-center bg-gray-100 p-1 rounded-full shadow-inner">
+                <button onClick={() => setLang('en')} className={`px-3 py-1 rounded-full text-[10px] font-black transition-all ${lang === 'en' ? 'bg-white shadow-sm text-lotus-dark' : 'text-gray-500'}`}>EN</button>
+                <button onClick={() => setLang('kn')} className={`px-3 py-1 rounded-full text-[10px] font-black transition-all ${lang === 'kn' ? 'bg-white shadow-sm text-lotus-dark' : 'text-gray-500'}`}>ಕ</button>
+              </div>
+              <button className="text-lotus-dark focus:outline-none cursor-pointer" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+              </button>
+            </div>
           </div>
-        )}
-      </nav>
+
+          {/* Mobile Menu */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden absolute top-[110%] left-0 w-full bg-white/95 backdrop-blur-xl border border-gray-100 shadow-2xl py-6 px-6 flex flex-col gap-6 animate-in fade-in slide-in-from-top-2 rounded-b-3xl">
+              <a href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-gray-800 hover:text-lotus-gold">{t.navHome}</a>
+              <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-gray-800 hover:text-lotus-gold">{t.navAbout}</a>
+              <a href="#services" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-gray-800 hover:text-lotus-gold">{t.navServices}</a>
+              <a href="#faq" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-gray-800 hover:text-lotus-gold">{t.navFaq}</a>
+              <button onClick={() => { setIsModalOpen(true); setIsMobileMenuOpen(false); }} className="text-lg font-bold text-left text-gray-800 hover:text-lotus-gold cursor-pointer">
+                {t.navContact}
+              </button>
+              <div className="pt-4 border-t border-gray-100">
+                <button onClick={() => { setIsModalOpen(true); setIsMobileMenuOpen(false); }} className="bg-gradient-to-r from-lotus-gold to-[#f5c35b] text-lotus-dark font-bold px-6 py-3.5 rounded-xl flex items-center justify-center shadow-lg w-full cursor-pointer">
+                  {!isPriceUnlocked ? (
+                    <span className="flex items-center gap-2"><Unlock size={18} /> {t.unlockRate}</span>
+                  ) : goldRateText === t.fetching ? (
+                    t.fetching
+                  ) : (
+                    <span>{t.live}: {goldRateText}</span>
+                  )}
+                </button>
+              </div>
+            </div>
+          )}
+        </nav>
+      </div>
 
       {/* HERO SECTION */}
       <main className="pt-28 lg:pt-36 pb-16 bg-[#1A0510] text-white relative overflow-hidden flex items-center min-h-[90vh]">
@@ -251,26 +253,40 @@ function App() {
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay"></div>
 
         <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-between w-full relative z-10 gap-16">
-          <div className="flex-1 space-y-10 max-w-2xl relative z-20">
+          <div className="flex-1 space-y-10 max-w-2xl lg:max-w-4xl relative z-20">
             <div className="space-y-6">
-              <h1 className="text-5xl md:text-7xl font-serif font-bold leading-[1.1] tracking-tight">
-                <span className="bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#B38728] text-transparent bg-clip-text drop-shadow-[0_0_15px_rgba(191,149,63,0.3)]">
-                  {t.heroTitle}
-                </span>{" "}
-                <span className="text-white">{t.heroHighlight}</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-2">
+                <span className="w-2 h-2 rounded-full bg-lotus-gold animate-pulse"></span>
+                <span className="text-lotus-gold font-sans font-medium tracking-[0.2em] text-[10px] uppercase opacity-90">{t.heroHead}</span>
+              </div>
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold leading-[1.1] tracking-tight whitespace-normal sm:whitespace-nowrap bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#B38728] text-transparent bg-clip-text drop-shadow-[0_0_15px_rgba(191,149,63,0.3)]">
+                {t.heroTitle} {t.heroHighlight}
               </h1>
-              <p className="text-lg md:text-xl font-medium tracking-[0.2em] uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#B38728] drop-shadow-[0_0_10px_rgba(191,149,63,0.2)]">
+              <p className="text-[10px] font-sans font-medium tracking-[0.4em] uppercase text-lotus-gold/90">
                 {t.heroTagline}
               </p>
-              <p className="text-3xl md:text-4xl font-serif font-bold text-white/90 tracking-tight leading-tight">
-                {t.heroSubHead1} <span className="whitespace-nowrap text-[#E8B13E]">{t.heroSubHead2}</span>
-              </p>
+              <div className="space-y-4 pt-6">
+                {[
+                  { Icon: Banknote, text: lang === 'en' ? "Instant Spot Cash" : "ತಕ್ಷಣ ನಗದು ಪಾವತಿ" },
+                  { Icon: SearchCheck, text: lang === 'en' ? "100% Transparent Testing" : "100% ಪಾರದರ್ಶಕ ಪರೀಕ್ಷೆ" },
+                  { Icon: Unlock, text: lang === 'en' ? "Bank Pledged Gold Release" : "ಅಡವಿಟ್ಟ ಚಿನ್ನ ಬಿಡುಗಡೆ" }
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-4 group">
+                    <div className="w-8 h-8 flex items-center justify-center text-lotus-gold group-hover:scale-110 transition-transform">
+                      <item.Icon size={24} strokeWidth={1.5} />
+                    </div>
+                    <span className="text-lg md:text-xl text-white/80 font-sans font-light tracking-wide">
+                      {item.text}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className="flex flex-wrap gap-5 pt-4">
-              <button onClick={() => setIsModalOpen(true)} className="bg-gradient-to-r from-lotus-gold to-[#f5c35b] text-lotus-dark font-black px-8 py-4 rounded-full hover:scale-105 transition-all duration-300 shadow-[0_0_30px_rgba(232,177,62,0.4)] flex items-center gap-2 cursor-pointer">
+              <a href="tel:+919945077757" className="bg-gradient-to-r from-lotus-gold to-[#f5c35b] text-lotus-dark font-black px-8 py-4 rounded-full hover:scale-105 transition-all duration-300 shadow-[0_0_30px_rgba(232,177,62,0.4)] flex items-center gap-2 cursor-pointer">
                 {t.btnContact} <ArrowRight size={20} />
-              </button>
+              </a>
               <a href="#services" className="bg-white/5 border border-white/20 backdrop-blur-md text-white font-bold px-8 py-4 rounded-full hover:bg-white/10 hover:border-white/40 transition-all duration-300 flex items-center gap-2 cursor-pointer">
                 {t.btnGetQuote}
               </a>
@@ -744,6 +760,8 @@ function App() {
               {t.ftLegalDesc}
             </p>
             <div className="flex flex-col gap-3 mt-4 text-xs font-bold text-lotus-gold/80">
+              <a href="/gold-buyers-in-mysore" className="hover:text-white transition-colors underline underline-offset-2">Gold Buyers in Mysore</a>
+              <a href="/sell-gold-near-me" className="hover:text-white transition-colors underline underline-offset-2">Sell Gold Near Me</a>
               <a href="/privacy-policy" className="hover:text-white transition-colors underline underline-offset-2">Privacy Policy</a>
               <a href="/terms-conditions" className="hover:text-white transition-colors underline underline-offset-2">Terms & Conditions</a>
             </div>

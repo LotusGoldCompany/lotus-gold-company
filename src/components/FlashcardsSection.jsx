@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React from "react";
 import { FileText, Coins, Microscope, Banknote, Unlock } from "lucide-react";
 
 const cards = [

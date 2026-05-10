@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ShieldCheck, Search, Banknote, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, Star, Heart, FileText, Banknote, ShieldCheck, Search, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function StoryConversionSection() {
   const [currentSlide, setCurrentSlide] = useState(0);

@@ -25,7 +25,7 @@ const translations = {
     heroTagline: "Your Gold. Our Promise.",
     heroSubHead1: "We help you get maximum value - ", heroSubHead2: "Safely & Instantly",
     btnGetQuote: "Get Free Gold Valuation",
-    heroHead: "Get the Best Price for Your Gold in Mysore.",
+    heroHead: "Get the Best Price for Your Gold.",
     heroDesc: "We help you release pledged gold from banks and pay instant spot cash. Honest testing, clear pricing, and no hidden fees for anyone searching to sell gold near me.",
     btnContact: "Call Now", btnCheckRate: "Check Today's Gold Price",
     reviews: "200+ Happy Customers", tested: "Tested",
@@ -175,7 +175,7 @@ function App() {
         <nav className="w-full max-w-7xl bg-white/90 backdrop-blur-xl px-6 py-3.5 md:rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.08)] border-b md:border border-white/50 pointer-events-auto transition-all duration-300">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <img src={myLogo} alt="Lotus Gold Company - Gold Buyer" width={160} height={64} className="h-10 md:h-14 w-auto object-contain cursor-pointer transform scale-[2.2] md:scale-[2.5] origin-left image-render-crisp drop-shadow-sm" />
+              <img src={myLogo} alt="Lotus Gold Company - Gold Buyer" width={160} height={64} className="h-14 md:h-14 w-auto object-contain cursor-pointer transform scale-[2.6] md:scale-[2.5] origin-left image-render-crisp drop-shadow-sm" />
             </div>
 
             <div className="hidden lg:flex items-center gap-8 text-[15px] font-bold text-gray-700 bg-gray-50/50 px-8 py-2.5 rounded-full border border-gray-100/50">
@@ -259,7 +259,7 @@ function App() {
                 <span className="w-2 h-2 rounded-full bg-lotus-gold animate-pulse"></span>
                 <span className="text-lotus-gold font-sans font-medium tracking-[0.2em] text-[10px] uppercase opacity-90">{t.heroHead}</span>
               </div>
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold leading-[1.1] tracking-tight whitespace-normal sm:whitespace-nowrap bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#B38728] text-transparent bg-clip-text drop-shadow-[0_0_15px_rgba(191,149,63,0.3)]">
+              <h1 className="text-5xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold leading-[1.1] tracking-tight whitespace-normal sm:whitespace-nowrap bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#B38728] text-transparent bg-clip-text drop-shadow-[0_0_15px_rgba(191,149,63,0.3)]">
                 {t.heroTitle} {t.heroHighlight}
               </h1>
               <p className="text-[10px] font-sans font-medium tracking-[0.4em] uppercase text-lotus-gold/90">

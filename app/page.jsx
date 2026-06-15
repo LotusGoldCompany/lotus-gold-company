@@ -255,9 +255,14 @@ function App() {
         <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-between w-full relative z-10 gap-16">
           <div className="flex-1 space-y-10 max-w-2xl lg:max-w-4xl relative z-20">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-2">
-                <span className="w-2 h-2 rounded-full bg-lotus-gold animate-pulse"></span>
-                <span className="text-lotus-gold font-sans font-medium tracking-[0.2em] text-[10px] uppercase opacity-90">{t.heroHead}</span>
+              <div className="flex flex-wrap items-center gap-3 mb-2">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
+                  <span className="w-2 h-2 rounded-full bg-lotus-gold animate-pulse"></span>
+                  <span className="text-lotus-gold font-sans font-medium tracking-[0.2em] text-[10px] uppercase opacity-90">{t.heroHead}</span>
+                </div>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lotus-gold/10 border border-lotus-gold/20 backdrop-blur-md shadow-[0_0_10px_rgba(232,177,62,0.15)]">
+                  <span className="text-lotus-gold font-sans font-bold tracking-[0.15em] text-[10px] uppercase">GSTIN: 29AANFL2841F1Z5</span>
+                </div>
               </div>
               <h1 className="text-5xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold leading-[1.1] tracking-tight whitespace-normal sm:whitespace-nowrap bg-gradient-to-r from-[#BF953F] via-[#FCF6BA] to-[#B38728] text-transparent bg-clip-text drop-shadow-[0_0_15px_rgba(191,149,63,0.3)]">
                 {t.heroTitle} {t.heroHighlight}
@@ -770,7 +775,8 @@ function App() {
         </div>
 
         {/* Copyright Line */}
-        <div className="max-w-7xl mx-auto pt-8 border-t border-white/10 text-center text-sm font-medium">
+        <div className="max-w-7xl mx-auto pt-8 border-t border-white/10 text-center text-sm font-medium flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-lotus-gold font-bold tracking-widest bg-white/5 px-4 py-1.5 rounded-full border border-white/10 shadow-sm">GSTIN: 29AANFL2841F1Z5</p>
           <p>&copy; {new Date().getFullYear()} Lotus Gold Company. {t.ftRights} | Compliant with KYC & AML regulations.</p>
         </div>
       </footer>

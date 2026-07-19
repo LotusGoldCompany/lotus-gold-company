@@ -1,60 +1,65 @@
+"use client";
+
 import { useState } from 'react';
 import { X, Send, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
+import { submitContactForm } from '../actions/contact';
+
+const contactSchema = z.object({
+  name: z.string().min(2, "Name is required"),
+  phone: z.string().regex(/^[0-9]{10}$/, "Please enter a valid 10-digit mobile number"),
+  grams: z.coerce.number().positive("Grams must be a valid positive number"),
+  purity: z.string(),
+  service: z.string()
+});
 
 export default function ContactForm({ isOpen, onClose, onUnlock }) {
-  const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    service: 'Sell Gold for Cash',
-    grams: '',
-    purity: '22K',
-    message: ''
+  const [status, setStatus] = useState('idle'); // 'idle' | 'success' | 'error'
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    getValues,
+    formState: { errors, isSubmitting },
+  } = useForm({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      name: '',
+      phone: '',
+      service: 'Sell Gold for Cash',
+      grams: '',
+      purity: '22K',
+    }
   });
 
   if (!isOpen) return null;
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus('submitting');
-
-    // Prepare data for Web3Forms
-    const submissionData = {
-      ...formData,
-      access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
-      subject: `New Lead: ${formData.service} - ${formData.name}`,
-      from_name: "Lotus Gold Automated System"
-    };
-
+  const onSubmit = async (data) => {
+    setStatus('idle');
+    setErrorMessage('');
+    
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(submissionData),
-      });
-
-      const result = await response.json();
-
+      const result = await submitContactForm(data);
+      
       if (result.success) {
         setStatus('success');
         if (onUnlock) onUnlock();
         setTimeout(() => {
-          setFormData({ name: '', phone: '', service: 'Sell Gold for Cash', grams: '', purity: '22K', message: '' });
+          reset();
           setStatus('idle');
           onClose();
         }, 2500);
       } else {
         setStatus('error');
+        setErrorMessage(result.error || "Something went wrong.");
       }
-    } catch {
+    } catch (e) {
       setStatus('error');
+      setErrorMessage("Network error, please try again.");
     }
   };
 
@@ -94,16 +99,16 @@ export default function ContactForm({ isOpen, onClose, onUnlock }) {
                 <CheckCircle size={40} className="text-green-500" />
               </div>
               <h4 className="text-2xl font-bold text-gray-900 mb-2">Message Sent!</h4>
-              <p className="text-gray-600 font-medium">Our executive will call you shortly at {formData.phone}.</p>
+              <p className="text-gray-600 font-medium">Our executive will call you shortly at {getValues('phone')}.</p>
             </div>
           ) : (
             /* FORM STATE */
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
               
               {/* Error Message */}
               {status === 'error' && (
                 <div className="bg-red-50 text-red-600 p-4 rounded-xl flex items-center gap-3 text-sm font-bold border border-red-100">
-                  <AlertCircle size={18} /> Something went wrong. Please try again.
+                  <AlertCircle size={18} /> {errorMessage}
                 </div>
               )}
 
@@ -111,13 +116,11 @@ export default function ContactForm({ isOpen, onClose, onUnlock }) {
                 <label className="block text-sm font-bold text-gray-700 mb-1.5">Full Name *</label>
                 <input 
                   type="text" 
-                  name="name"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#E8B13E] focus:border-transparent outline-none transition-all font-medium text-gray-900"
+                  {...register("name")}
+                  className={`w-full px-4 py-3.5 bg-gray-50 border ${errors.name ? 'border-red-500 focus:ring-red-500' : 'border-gray-200 focus:ring-[#E8B13E]'} rounded-xl focus:ring-2 focus:border-transparent outline-none transition-all font-medium text-gray-900`}
                   placeholder="Enter your name"
                 />
+                {errors.name && <p className="text-red-500 text-xs font-bold mt-1.5">{errors.name.message}</p>}
               </div>
 
               <div>
@@ -126,39 +129,30 @@ export default function ContactForm({ isOpen, onClose, onUnlock }) {
                   <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 font-bold">+91</span>
                   <input 
                     type="tel" 
-                    name="phone"
-                    required
-                    pattern="[0-9]{10}"
-                    title="Please enter a valid 10-digit mobile number"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full pl-12 pr-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#E8B13E] focus:border-transparent outline-none transition-all font-medium text-gray-900"
+                    {...register("phone")}
+                    className={`w-full pl-12 pr-4 py-3.5 bg-gray-50 border ${errors.phone ? 'border-red-500 focus:ring-red-500' : 'border-gray-200 focus:ring-[#E8B13E]'} rounded-xl focus:ring-2 focus:border-transparent outline-none transition-all font-medium text-gray-900`}
                     placeholder="98765 43210"
                   />
                 </div>
+                {errors.phone && <p className="text-red-500 text-xs font-bold mt-1.5">{errors.phone.message}</p>}
               </div>
 
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-1.5">Total Grams (Approx) *</label>
                 <input 
                   type="number" 
-                  name="grams"
                   step="0.01"
-                  required
-                  value={formData.grams}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#E8B13E] focus:border-transparent outline-none transition-all font-medium text-gray-900"
+                  {...register("grams")}
+                  className={`w-full px-4 py-3.5 bg-gray-50 border ${errors.grams ? 'border-red-500 focus:ring-red-500' : 'border-gray-200 focus:ring-[#E8B13E]'} rounded-xl focus:ring-2 focus:border-transparent outline-none transition-all font-medium text-gray-900`}
                   placeholder="e.g. 15.5"
                 />
+                {errors.grams && <p className="text-red-500 text-xs font-bold mt-1.5">{errors.grams.message}</p>}
               </div>
 
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-1.5">Gold Purity *</label>
                 <select 
-                  name="purity"
-                  required
-                  value={formData.purity}
-                  onChange={handleChange}
+                  {...register("purity")}
                   className="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#E8B13E] focus:border-transparent outline-none transition-all font-medium text-gray-900"
                 >
                   <option value="18K">18K</option>
@@ -172,9 +166,7 @@ export default function ContactForm({ isOpen, onClose, onUnlock }) {
               <div>
                 <label className="block text-sm font-bold text-gray-700 mb-1.5">How can we help you? *</label>
                 <select 
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
+                  {...register("service")}
                   className="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#E8B13E] focus:border-transparent outline-none transition-all font-medium text-gray-900"
                 >
                   <option>Sell Gold for Cash</option>
@@ -185,10 +177,10 @@ export default function ContactForm({ isOpen, onClose, onUnlock }) {
 
               <button 
                 type="submit" 
-                disabled={status === 'submitting'}
+                disabled={isSubmitting}
                 className="w-full bg-[#E8B13E] text-[#2B0917] font-black text-lg py-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 mt-4 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
               >
-                {status === 'submitting' ? (
+                {isSubmitting ? (
                   <>
                     <Loader2 size={20} className="animate-spin" /> Sending Details...
                   </>

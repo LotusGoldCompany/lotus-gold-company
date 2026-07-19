@@ -43,7 +43,7 @@ export default function ContactForm({ isOpen, onClose, onUnlock }) {
     
     const submissionData = {
       ...data,
-      access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+      access_key: "f5acb993-861a-473e-a614-5d3b6ecc7b6a",
       subject: `New Lead: ${data.service} - ${data.name}`,
       from_name: "Lotus Gold Automated System"
     };

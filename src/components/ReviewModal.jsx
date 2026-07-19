@@ -27,7 +27,7 @@ export default function ReviewModal({ isOpen, onClose }) {
     // Prepare data for Web3Forms
     const submissionData = {
       ...formData,
-      access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+      access_key: "f5acb993-861a-473e-a614-5d3b6ecc7b6a",
       subject: `⭐️ New ${formData.rating}-Star Review from ${formData.name}`,
       from_name: "Lotus Gold Reviews"
     };

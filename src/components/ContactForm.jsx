@@ -5,7 +5,6 @@ import { X, Send, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { submitContactForm } from '../actions/contact';
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -42,8 +41,24 @@ export default function ContactForm({ isOpen, onClose, onUnlock }) {
     setStatus('idle');
     setErrorMessage('');
     
+    const submissionData = {
+      ...data,
+      access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+      subject: `New Lead: ${data.service} - ${data.name}`,
+      from_name: "Lotus Gold Automated System"
+    };
+
     try {
-      const result = await submitContactForm(data);
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(submissionData),
+      });
+
+      const result = await response.json();
       
       if (result.success) {
         setStatus('success');
@@ -55,7 +70,7 @@ export default function ContactForm({ isOpen, onClose, onUnlock }) {
         }, 2500);
       } else {
         setStatus('error');
-        setErrorMessage(result.error || "Something went wrong.");
+        setErrorMessage(result.message || "Failed to submit form to Web3Forms.");
       }
     } catch (e) {
       setStatus('error');
